@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 public class ConexaoBanco {
     public static Connection getConnection(){
         try {
-             return DriverManager.getConnection("jdbc:sqlite:C:\\Whiskas Imobiliaria\\Banco_de_Dados.db");
+             String dbPath = System.getProperty("user.dir") + "/Banco_de_Dados.db";
+             return DriverManager.getConnection("jdbc:sqlite:" + dbPath);
         }catch(SQLException excecao) {throw new RuntimeException(excecao);}
     }
     
